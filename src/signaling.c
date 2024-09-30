@@ -2,7 +2,6 @@
 #include <FreeRTOS.h>
 #include <pico/stdlib.h>
 #include <pico/cyw43_arch.h>
-#include <unity.h>
 #include "signaling.h"
 #include <semphr.h>
 
@@ -20,7 +19,7 @@ void signal_handle_calculation(SemaphoreHandle_t request,
     xSemaphoreTake(request, portMAX_DELAY);
 
     // Do Calculation
-    signal_data->output = signal_data->input + 5;
+    data->output = data->input + 5;
 
     // Signal calculation complete
     xSemaphoreGive(response);
@@ -35,13 +34,4 @@ BaseType_t signal_request_calculate(SemaphoreHandle_t request,
 
     // Signal calculation complete
     return xSemaphoreTake(response, portMAX_DELAY);
-}
-
-int main (void)
-{
-    stdio_init_all();
-    hard_assert(cyw43_arch_init() == PICO_OK);
-
-    vTaskStartScheduler();
-	return 0;
 }

@@ -1,6 +1,7 @@
 # This is the main binary. List your C files here.
 add_executable(signaling
     signaling.c
+    main.c
     )
 
 pico_set_program_name(signaling "test")
