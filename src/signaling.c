@@ -5,11 +5,6 @@
 #include "signaling.h"
 #include <semphr.h>
 
-#define TEST_TASK_PRIORITY      ( tskIDLE_PRIORITY + 1UL )
-#define TEST_TASK_STACK_SIZE configMINIMAL_STACK_SIZE
-#define TEST_RUNNER_PRIORITY      ( tskIDLE_PRIORITY + 2UL )
-#define TEST_RUNNER_STACK_SIZE configMINIMAL_STACK_SIZE
-
 
 void signal_handle_calculation(SemaphoreHandle_t request,
                                SemaphoreHandle_t response,
